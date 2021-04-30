@@ -1,30 +1,9 @@
-from instagram_private_api import Client, ClientCompatPatch, MediaTypes
-from PIL import Image
-
-try:
-    # python 2.x
-    from urllib2 import urlopen
-    import urllib2 as compat_urllib_request
-except ImportError:
-    # python 3.x
-    from urllib.request import urlopen
-    import urllib.request as compat_urllib_request
-try:
-    from urllib.parse import urlparse as compat_urllib_parse_urlparse
-except ImportError:  # Python 2
-    from urlparse import urlparse as compat_urllib_parse_urlparse
-
 import json
 import codecs
 import datetime
 import os.path
 import logging
 import argparse
-import base64
-
-###########################################
-# Login
-###########################################
 
 try:
     from instagram_private_api import (
@@ -131,49 +110,4 @@ if __name__ == '__main__':
     results = api.user_feed('2958144170')
     assert len(results.get('items', [])) > 0
 
-    print('Login worked - All ok')
-    
-    ###########################################
-
-    info = api.user_info(47082668829)
-
-    #print(info)
-    print("Hello")
-
-    # im = Image.open("./photos/Komprimiert.jpg")
-    # width, height = im.size
-    # photo_size = (width, height)
-    # print(photo_size)
-    
-    # with open("./photos/Komprimiert.jpg", "rb") as imageFile:
-    #     photo_data = base64.b64encode(imageFile.read())
-
-    # photo_caption = "Test Upload"
-
-    # api.post_photo(photo_data, size=(1200, 1600), caption=photo_caption, upload_id=None, to_reel=False)
-
-
-    # sample_url = 'https://c1.staticflickr.com/5/4103/5059663679_85a7ec3f63_b.jpg'
-    # res = Image.open("./photos/Komprimiert.jpg")
-
-    # with open("./photos/Komprimiert.jpg", "rb") as imageFile:
-    #      enc = base64.b64encode(imageFile.read())
-
-    # photo_data = enc
-
-    # size = (1024, 683)
-    # caption = 'Feathers'
-    # results = api.post_photo(photo_data, size=size, caption=caption)
-    # print(results)
-
-class upload:
-    @staticmethod
-    def test_post_photo():
-            sample_url = 'https://c1.staticflickr.com/5/4103/5059663679_85a7ec3f63_b.jpg'
-            res = urlopen(sample_url)
-            photo_data = res.read()
-            size = (1024, 683)
-            caption = 'Feathers'
-            api.post_photo(photo_data, size=size, caption=caption)
-
-upload.test_post_photo()
+    print('All ok')
