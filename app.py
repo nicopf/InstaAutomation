@@ -24,11 +24,11 @@ if __name__ == '__main__':
 #post album working
     posts = [
         ps.PostFeed(
-            path='photos/Square.jpg',
+            path='photoo/Square.jpg',
             caption='normal',
         ),
         ps.PostFeed(
-            path='photos/Square2.jpg',
+            path='photoo/Square2.jpg',
             caption='turned',
         )
     ]
